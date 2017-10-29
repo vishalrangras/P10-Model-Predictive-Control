@@ -92,6 +92,16 @@ int main() {
           double psi = j[1]["psi"];
           double v = j[1]["speed"];
           double Lf = 2.67;
+		  
+		  double steer_value = j[1]["steering_angle"];
+          double throttle_value = j[1]["throttle"];
+		  
+		  // Latency Computation
+          double latency = 0.1;
+		  px = px + v*cos(psi)*latency;
+          py = py + v*sin(psi)*latency;
+          psi = psi - v*steer_value/Lf*latency;
+          v = v + throttle_value*latency;
 
           // Reference Frame Transformation
           for(unsigned int i = 0; i < ptsx.size(); i++){
@@ -122,16 +132,6 @@ int main() {
           * Both are in between [-1, 1].
           *
           */
-		  
-		  double steer_value = j[1]["steering_angle"];
-          double throttle_value = j[1]["throttle"];
-		  
-		  // Latency Computation
-          double latency = 0.1;
-		  px = px + v*cos(psi)*latency;
-          py = py + v*sin(psi)*latency;
-          psi = psi - v*steer_value/Lf*latency;
-          v = v + throttle_value*latency;
 
           auto vars = mpc.Solve(state,coeffs);
 

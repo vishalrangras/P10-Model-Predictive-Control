@@ -24,3 +24,9 @@ The goals for this project are to:
 ### Reflection ###
 
 See **[Reflection](./Reflection.md)**
+
+[image1]: ./Result.PNG "Result"
+
+<h3 align="center"> Result <h3>
+
+![alt text][image1]

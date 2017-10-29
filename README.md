@@ -25,7 +25,7 @@ The goals for this project are to:
 
 See **[Reflection](./Reflection.md)**
 
-[image1]: ./Result.PNG "Result"
+[image1]: ./Result.png "Result"
 
 <h3 align="center"> Result <h3>
 
